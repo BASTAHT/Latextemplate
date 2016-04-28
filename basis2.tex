@@ -1,0 +1,132 @@
+\documentclass[a4paper,12pt,titlepage]{article}
+
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{afterpage}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{subfig} 
+\usepackage{todonotes}
+\usepackage[framed,autolinebreaks,numbered]{mcode}
+\usepackage[utf8]{inputenc} 
+\usepackage{hyperref} %dit pakket gebruik je voor hyperlinks
+\usepackage[titletoc,title,page,header]{appendix}
+
+
+%package en settings voor symbolenlijst
+\usepackage{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Symbolenlijst}
+
+%package en settings voor headers/footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{14.5pt}
+\fancyhf{}
+
+%voeg commando toe voor lege pagina's i.v.m. printen
+\newcommand*\emptypage{\newpage\null\thispagestyle{empty}\newpage}
+
+%commando voor lijnen op titelpagina
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newcommand{\thesectionabstract}{Abstract}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+
+% Upper part of the page. The '~' is needed because \\
+% only works if a paragraph has started.
+
+%naam universiteit en naam Vak plaatsen
+\textsc{\LARGE University of Twente}\\[1.5cm]
+
+\textsc{\Large Course}\\[0.5cm]
+
+% Titel plaatsen
+\HRule \\[0.4cm]
+{ \huge \bfseries Title}\\[0.4cm]
+
+%afbeelding toevoegen
+\HRule \\[1cm]
+\includegraphics[scale=0.3]{figures/muzieknoot}
+\HRule \\[2cm]
+
+% Auteurs plaatsen
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Bas \textsc{Stadhouder}\\s1219448
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{} \\
+Bas \textsc{Stadhouder}\\s1219448
+\end{flushright}
+\end{minipage}
+
+\vfill
+
+% Datum plaatsen
+%\begin{minipage}{1.0\textwidth}
+%\begin{flushleft} \large
+{\large \today}
+%\end{flushleft}
+%\end{minipage}
+
+\end{center}
+\end{titlepage}
+
+
+%Headers and footers maken
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhead[LO]{\textbf{Course}}
+\fancyhead[RO]{\nouppercase{\bfseries\rightmark}}
+\lfoot{Bas Stadhouder}
+\rfoot{\textbf{\thepage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+
+
+\emptypage
+%\section*{Empty page for printing}
+%use \textbackslash emptypage command if needed otherwise fill it
+%\newpage
+
+\section*{Abstract} \markright{Abstract}
+\addcontentsline{toc}{section}{\thesectionabstract}
+
+\emptypage
+
+%inhoudsopgave plaatsen
+\tableofcontents
+
+\newpage
+\emptypage
+
+
+
+\section{Introduction}
+\newpage
+\section{Theory}
+\section{Measurements}
+
+
+
+\newpage
+\markright{Appendices}
+\begin{appendices}
+\section{Matlab Code}
+\lstinputlisting{matlab/tunneling.M}
+\end{appendices}
+\bibliography{refs/standaard}{}
+
+
+\end{document}
